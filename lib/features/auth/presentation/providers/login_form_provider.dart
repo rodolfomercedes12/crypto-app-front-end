@@ -31,9 +31,8 @@ class LoginFormNotifier extends StateNotifier<LoginFormState> {
   }
 
   onPasswordChange(String value){
-      print("password changed!!!");
-     final newPassword = Password.dirty(value);
-    state = state.copyWith(
+      final newPassword = Password.dirty(value);
+      state = state.copyWith(
       password: newPassword,
       isValid: Formz.validate([ newPassword, state.email ])
     );
@@ -56,9 +55,9 @@ class LoginFormNotifier extends StateNotifier<LoginFormState> {
 
     state = state.copyWith( 
       isFormPosted: true,
-       email: email,
-        password: password, 
-        isValid: Formz.validate([ email, password ])  );
+      email: email,
+      password: password, 
+      isValid: Formz.validate([ email, password ])  );
 
   }
 

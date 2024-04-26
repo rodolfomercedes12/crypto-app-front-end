@@ -31,7 +31,7 @@ class RegisterFormNotifier extends StateNotifier<RegisterFormState> {
   }
 
   onPasswordChange(String value){
-      print("password changed!!!");
+     
      final newPassword = Password.dirty(value);
     state = state.copyWith(
       password: newPassword,

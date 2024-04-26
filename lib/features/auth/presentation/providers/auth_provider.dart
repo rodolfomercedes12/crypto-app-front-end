@@ -34,11 +34,10 @@ class AuthNotifier extends StateNotifier<AuthState> {
     await Future.delayed( const Duration(milliseconds: 500) );
     try {
       final user = await authRepository.login(email, password);
-      print(user);
       _setLoggedUser(user);
       
     } on CustomError catch (e) {
-      print("CustomError en el provider!!!!!!!! ${e.message}");
+      
 
       logout(e.message);
     } catch (e) {
@@ -50,11 +49,9 @@ class AuthNotifier extends StateNotifier<AuthState> {
    void registerUser( String email, String password ) async {
     try {
       final user = await authRepository.register(email, password);
-      print(user);
       _setLoggedUser(user);
       
     } on CustomError catch (e) {
-      print("CustomError en el provider!!!!!!!! ${e.message}");
 
       logout(e.message);
     } catch (e) {
@@ -79,7 +76,6 @@ class AuthNotifier extends StateNotifier<AuthState> {
   }
 
   void _setLoggedUser(User user) async {
-   //await  keyValueStorage.setKeyValue("token", user.token );
     state = state.copyWith(
        user: user,
        authStatus: AuthStatus.authenticated,

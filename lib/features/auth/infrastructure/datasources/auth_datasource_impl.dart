@@ -1,7 +1,5 @@
 
 
-
-
  import 'package:dio/dio.dart';
 import 'package:crypto_app/config/config.dart';
 import 'package:crypto_app/features/auth/domain/domain.dart';
@@ -40,18 +38,13 @@ class  AuthDataSourceImpl  extends AuthDataSource {
 
   @override
   Future<User> login(String email, String password) async {
-    print(email);
-    print(password);
-    print("LOGIN PETICION!!!!");
+
     try {
       final response = await dio.post("/api/login" /*"/auth/login"*/, data: {
         "email": email,
         "password": password
       } );
 
-      print(response.statusCode);
-
-      print(response.data);
 
       final user = UserMapper.userJsonToEntity(response.data["usuario"]);
       return user;
@@ -70,8 +63,7 @@ class  AuthDataSourceImpl  extends AuthDataSource {
       
       throw Exception();
     } catch (e) {
-      print("Error!!!!!!!!!!!!!!!!!!!!!! $e");
-      throw CustomError( "Entró al catch!!!!!!!!!!!" );
+      throw CustomError( "Login Error" );
 
     }
   }
@@ -99,7 +91,6 @@ class  AuthDataSourceImpl  extends AuthDataSource {
         "password": password
       } );
 
-      print(response.data);
 
       final user = UserMapper.userJsonToEntity(response.data["usuario"]);
       return user;
@@ -110,13 +101,12 @@ class  AuthDataSourceImpl  extends AuthDataSource {
         throw CustomError( e.response?.data["message"] ?? "El correo ya está registrado" );
       }
 
-     
-     
+   
       
       throw Exception();
     } catch (e) {
-      print("Error!!!!!!!!!!!!!!!!!!!!!! $e");
-      throw CustomError( "Entró al catch!!!!!!!!!!!" );
+
+      throw CustomError( "Register Error" );
 
     }
   }

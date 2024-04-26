@@ -25,16 +25,11 @@ class LoginScreen extends StatelessWidget {
             children: [
               const SizedBox( height: 80 ),
               
-              // Icon Banner
-              // const Icon( 
-              //   Icons.currency_pound_outlined, 
-              //   color: Colors.white,
-              //   size: 100,
-              // ),
+            
               const SizedBox( height: 80 ),
     
               Container(
-                height: size.height - 260, // 80 los dos sizebox y 100 el ícono
+                height: size.height - 260,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: scaffoldBackgroundColor,
@@ -67,7 +62,6 @@ class _LoginForm extends ConsumerWidget {
     final loginForm = ref.watch(loginFormProvider);
 
     ref.listen( authProvider, (previous, next){
-      print(next.errorMessage);
       if( next.errorMessage.isEmpty ) return;
       showSnackbar( context, next.errorMessage );
     } );

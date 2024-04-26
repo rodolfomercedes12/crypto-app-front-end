@@ -47,7 +47,7 @@ class RegisterScreen extends StatelessWidget {
                 const SizedBox( height: 30 ),
     
                 Container(
-                  height: size.height - 260, // 80 los dos sizebox y 100 el ícono
+                  height: size.height - 260, 
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: scaffoldBackgroundColor,
@@ -78,11 +78,11 @@ class _RegisterForm extends ConsumerWidget {
       padding: const EdgeInsets.symmetric(horizontal: 50),
       child: Column(
         children: [
-          Spacer(),
-          //const SizedBox( height: 50 ),
+          const Spacer(),
+         
           Text('Register', style: textStyles.titleMedium ),
-          Spacer(),
-          //const SizedBox( height: 50 ),
+          const Spacer(),
+         
           
           
           CustomTextFormField(
@@ -101,14 +101,8 @@ class _RegisterForm extends ConsumerWidget {
             errorMessage: registerForm.isFormPosted ? registerForm.password.errorMessage : null,
           ),
         
-          const SizedBox( height: 30 ),
+          const SizedBox( height: 50 ),
           
-         /* const CustomTextFormField(
-            label: 'Repita la contraseña',
-            obscureText: true,
-          ),*/
-        
-          const SizedBox( height: 20 ),
           
           SizedBox(
             width: double.infinity,

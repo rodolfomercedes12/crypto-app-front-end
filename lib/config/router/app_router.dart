@@ -50,7 +50,6 @@ final goRouterProvider = Provider((ref) {
     final isGoingTo = state.subloc;
     final authStatus = goRouterNotifier.authStatus;
 
-    print(authStatus);
 
     if( isGoingTo == "/splash" && authStatus == AuthStatus.checking ) return null;
     if(  authStatus == AuthStatus.notAuthenticated ){
